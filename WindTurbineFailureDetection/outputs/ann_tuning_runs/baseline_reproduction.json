@@ -1,0 +1,72 @@
+{
+  "method": "Five pre-specified ANN configurations evaluated on the fixed timestamp-grouped chronological validation partition.",
+  "selection_rule": "Highest validation recall; F1 then precision only if recall ties. Test partition excluded.",
+  "preprocessing": "Median imputation and StandardScaler fitted on training split only; class weighting from training labels; early stopping monitors validation loss.",
+  "seed": 42,
+  "class_weight": {
+    "0": 1.0,
+    "1": 61.60692464358452
+  },
+  "attempted_configurations": [
+    {
+      "id": "baseline_reproduction",
+      "description": "Recorded baseline architecture reproduced under the focused fixed-seed protocol.",
+      "status": "completed",
+      "parameters": {
+        "id": "baseline_reproduction",
+        "description": "Recorded baseline architecture reproduced under the focused fixed-seed protocol.",
+        "layers": [
+          48,
+          16
+        ],
+        "dropout": [
+          0.2
+        ],
+        "batch_normalization": false,
+        "learning_rate": 0.001,
+        "l2": 0.0,
+        "epochs": 15,
+        "patience": 2
+      },
+      "epochs_completed": 3,
+      "accuracy": 0.9478502781992919,
+      "precision": 0.5028449502133713,
+      "recall": 0.6804619826756496,
+      "f1": 0.5783231083844581,
+      "tn": 18032,
+      "fp": 699,
+      "fn": 332,
+      "tp": 707
+    }
+  ],
+  "validation_winner": {
+    "id": "baseline_reproduction",
+    "description": "Recorded baseline architecture reproduced under the focused fixed-seed protocol.",
+    "status": "completed",
+    "parameters": {
+      "id": "baseline_reproduction",
+      "description": "Recorded baseline architecture reproduced under the focused fixed-seed protocol.",
+      "layers": [
+        48,
+        16
+      ],
+      "dropout": [
+        0.2
+      ],
+      "batch_normalization": false,
+      "learning_rate": 0.001,
+      "l2": 0.0,
+      "epochs": 15,
+      "patience": 2
+    },
+    "epochs_completed": 3,
+    "accuracy": 0.9478502781992919,
+    "precision": 0.5028449502133713,
+    "recall": 0.6804619826756496,
+    "f1": 0.5783231083844581,
+    "tn": 18032,
+    "fp": 699,
+    "fn": 332,
+    "tp": 707
+  }
+}

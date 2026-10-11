@@ -1,0 +1,3 @@
+model,split,accuracy,precision,recall,f1,tn,fp,fn,tp,parameters,evidence_type,selection_candidate
+XGBoost (tuned),validation,0.9678806272129489,0.6957364341085271,0.6910490856592878,0.6933848382423949,18417,314,321,718,,,
+Artificial Neural Network (tuned),validation,0.9156297420333839,0.37671501372010974,0.9249278152069298,0.5353760445682452,17141,1590,78,961,"{'layers': [64, 24, 1], 'dropout': [0.3, 0.15], 'batch_normalization': True, 'optimizer': 'adam', 'early_stopping': True}",previously recorded selected configuration,True

@@ -1,0 +1,74 @@
+{
+  "method": "Five pre-specified ANN configurations evaluated on the fixed timestamp-grouped chronological validation partition.",
+  "selection_rule": "Highest validation recall; F1 then precision only if recall ties. Test partition excluded.",
+  "preprocessing": "Median imputation and StandardScaler fitted on training split only; class weighting from training labels; early stopping monitors validation loss.",
+  "seed": 42,
+  "class_weight": {
+    "0": 1.0,
+    "1": 61.60692464358452
+  },
+  "attempted_configurations": [
+    {
+      "id": "previous_regularized",
+      "description": "Previously selected regularized ANN configuration.",
+      "status": "completed",
+      "parameters": {
+        "id": "previous_regularized",
+        "description": "Previously selected regularized ANN configuration.",
+        "layers": [
+          64,
+          24
+        ],
+        "dropout": [
+          0.3,
+          0.15
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.001,
+        "l2": 0.0,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 8,
+      "accuracy": 0.9489124936772888,
+      "precision": 0.5080066261733849,
+      "recall": 0.8854667949951877,
+      "f1": 0.6456140350877193,
+      "tn": 17840,
+      "fp": 891,
+      "fn": 119,
+      "tp": 920
+    }
+  ],
+  "validation_winner": {
+    "id": "previous_regularized",
+    "description": "Previously selected regularized ANN configuration.",
+    "status": "completed",
+    "parameters": {
+      "id": "previous_regularized",
+      "description": "Previously selected regularized ANN configuration.",
+      "layers": [
+        64,
+        24
+      ],
+      "dropout": [
+        0.3,
+        0.15
+      ],
+      "batch_normalization": true,
+      "learning_rate": 0.001,
+      "l2": 0.0,
+      "epochs": 20,
+      "patience": 3
+    },
+    "epochs_completed": 8,
+    "accuracy": 0.9489124936772888,
+    "precision": 0.5080066261733849,
+    "recall": 0.8854667949951877,
+    "f1": 0.6456140350877193,
+    "tn": 17840,
+    "fp": 891,
+    "fn": 119,
+    "tp": 920
+  }
+}

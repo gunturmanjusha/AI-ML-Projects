@@ -1,0 +1,221 @@
+{
+  "method": "Five pre-specified fixed-seed ANN configurations evaluated on the fixed timestamp-grouped chronological validation partition.",
+  "selection_rule": "Highest validation recall; F1 then precision only if recall ties. The test partition was excluded.",
+  "preprocessing": "Median imputation and StandardScaler fit only on training data; class weighting from training labels; validation-loss early stopping.",
+  "historical_selected_configuration": {
+    "model": "Artificial Neural Network (tuned)",
+    "split": "validation",
+    "accuracy": 0.9156297420333839,
+    "precision": 0.37671501372010974,
+    "recall": 0.9249278152069298,
+    "f1": 0.5353760445682452,
+    "tn": 17141,
+    "fp": 1590,
+    "fn": 78,
+    "tp": 961,
+    "parameters": {
+      "layers": [
+        64,
+        24,
+        1
+      ],
+      "dropout": [
+        0.3,
+        0.15
+      ],
+      "batch_normalization": true,
+      "optimizer": "adam",
+      "early_stopping": true
+    },
+    "evidence_type": "previously recorded selected configuration",
+    "selection_candidate": true
+  },
+  "attempted_configurations": [
+    {
+      "id": "baseline_reproduction",
+      "description": "Recorded baseline architecture reproduced under the focused fixed-seed protocol.",
+      "status": "completed",
+      "parameters": {
+        "id": "baseline_reproduction",
+        "description": "Recorded baseline architecture reproduced under the focused fixed-seed protocol.",
+        "layers": [
+          48,
+          16
+        ],
+        "dropout": [
+          0.2
+        ],
+        "batch_normalization": false,
+        "learning_rate": 0.001,
+        "l2": 0.0,
+        "epochs": 15,
+        "patience": 2
+      },
+      "epochs_completed": 3,
+      "accuracy": 0.9478502781992919,
+      "precision": 0.5028449502133713,
+      "recall": 0.6804619826756496,
+      "f1": 0.5783231083844581,
+      "tn": 18032,
+      "fp": 699,
+      "fn": 332,
+      "tp": 707
+    },
+    {
+      "id": "compact_regularized",
+      "description": "Smaller regularized network to test a lower-capacity alternative.",
+      "status": "completed",
+      "parameters": {
+        "id": "compact_regularized",
+        "description": "Smaller regularized network to test a lower-capacity alternative.",
+        "layers": [
+          48,
+          16
+        ],
+        "dropout": [
+          0.25,
+          0.1
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.0007,
+        "l2": 0.0001,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 11,
+      "accuracy": 0.9602427921092564,
+      "precision": 0.5851851851851851,
+      "recall": 0.836381135707411,
+      "f1": 0.6885895404120443,
+      "tn": 18115,
+      "fp": 616,
+      "fn": 170,
+      "tp": 869
+    },
+    {
+      "id": "higher_dropout_l2",
+      "description": "Previous width with stronger dropout and L2 regularization.",
+      "status": "completed",
+      "parameters": {
+        "id": "higher_dropout_l2",
+        "description": "Previous width with stronger dropout and L2 regularization.",
+        "layers": [
+          64,
+          24
+        ],
+        "dropout": [
+          0.4,
+          0.2
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.001,
+        "l2": 0.0001,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 8,
+      "accuracy": 0.9369752149721801,
+      "precision": 0.4513399153737659,
+      "recall": 0.9239653512993262,
+      "f1": 0.6064434617814277,
+      "tn": 17564,
+      "fp": 1167,
+      "fn": 79,
+      "tp": 960
+    },
+    {
+      "id": "previous_regularized",
+      "description": "Previously selected regularized ANN configuration.",
+      "status": "completed",
+      "parameters": {
+        "id": "previous_regularized",
+        "description": "Previously selected regularized ANN configuration.",
+        "layers": [
+          64,
+          24
+        ],
+        "dropout": [
+          0.3,
+          0.15
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.001,
+        "l2": 0.0,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 8,
+      "accuracy": 0.9489124936772888,
+      "precision": 0.5080066261733849,
+      "recall": 0.8854667949951877,
+      "f1": 0.6456140350877193,
+      "tn": 17840,
+      "fp": 891,
+      "fn": 119,
+      "tp": 920
+    },
+    {
+      "id": "wider_l2",
+      "description": "Wider network with L2 regularization and a lower learning rate.",
+      "status": "completed",
+      "parameters": {
+        "id": "wider_l2",
+        "description": "Wider network with L2 regularization and a lower learning rate.",
+        "layers": [
+          96,
+          32
+        ],
+        "dropout": [
+          0.3,
+          0.15
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.0007,
+        "l2": 0.0001,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 8,
+      "accuracy": 0.9582195245321193,
+      "precision": 0.5948352626892253,
+      "recall": 0.6429258902791145,
+      "f1": 0.6179463459759482,
+      "tn": 18276,
+      "fp": 455,
+      "fn": 371,
+      "tp": 668
+    }
+  ],
+  "best_new_configuration": {
+    "id": "higher_dropout_l2",
+    "description": "Previous width with stronger dropout and L2 regularization.",
+    "status": "completed",
+    "parameters": {
+      "id": "higher_dropout_l2",
+      "description": "Previous width with stronger dropout and L2 regularization.",
+      "layers": [
+        64,
+        24
+      ],
+      "dropout": [
+        0.4,
+        0.2
+      ],
+      "batch_normalization": true,
+      "learning_rate": 0.001,
+      "l2": 0.0001,
+      "epochs": 20,
+      "patience": 3
+    },
+    "epochs_completed": 8,
+    "accuracy": 0.9369752149721801,
+    "precision": 0.4513399153737659,
+    "recall": 0.9239653512993262,
+    "f1": 0.6064434617814277,
+    "tn": 17564,
+    "fp": 1167,
+    "fn": 79,
+    "tp": 960
+  },
+  "selection_result": "The previously recorded regularized ANN remains the validation winner: 92.4928% recall versus 92.3965% for the best newly trained configuration (higher_dropout_l2)."
+}

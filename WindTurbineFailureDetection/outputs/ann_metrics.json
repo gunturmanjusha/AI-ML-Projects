@@ -1,0 +1,29 @@
+{
+  "validation": {
+    "model": "Artificial Neural Network",
+    "accuracy": 0.9410544424205627,
+    "precision": 0.4608695652173913,
+    "recall": 0.714148219441771,
+    "f1": 0.5602114005285013,
+    "tn": 17857,
+    "fp": 868,
+    "fn": 297,
+    "tp": 742
+  },
+  "test": {
+    "model": "Artificial Neural Network",
+    "accuracy": 0.9247115968427444,
+    "precision": 0.4762376237623762,
+    "recall": 0.33402777777777776,
+    "f1": 0.3926530612244898,
+    "tn": 17795,
+    "fp": 529,
+    "fn": 959,
+    "tp": 481
+  },
+  "split_sizes": {
+    "train": 92232,
+    "validation": 19764,
+    "test": 19764
+  }
+}

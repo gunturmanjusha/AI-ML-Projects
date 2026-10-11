@@ -1,0 +1,74 @@
+{
+  "method": "Five pre-specified ANN configurations evaluated on the fixed timestamp-grouped chronological validation partition.",
+  "selection_rule": "Highest validation recall; F1 then precision only if recall ties. Test partition excluded.",
+  "preprocessing": "Median imputation and StandardScaler fitted on training split only; class weighting from training labels; early stopping monitors validation loss.",
+  "seed": 42,
+  "class_weight": {
+    "0": 1.0,
+    "1": 61.60692464358452
+  },
+  "attempted_configurations": [
+    {
+      "id": "higher_dropout_l2",
+      "description": "Previous width with stronger dropout and L2 regularization.",
+      "status": "completed",
+      "parameters": {
+        "id": "higher_dropout_l2",
+        "description": "Previous width with stronger dropout and L2 regularization.",
+        "layers": [
+          64,
+          24
+        ],
+        "dropout": [
+          0.4,
+          0.2
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.001,
+        "l2": 0.0001,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 8,
+      "accuracy": 0.9369752149721801,
+      "precision": 0.4513399153737659,
+      "recall": 0.9239653512993262,
+      "f1": 0.6064434617814277,
+      "tn": 17564,
+      "fp": 1167,
+      "fn": 79,
+      "tp": 960
+    }
+  ],
+  "validation_winner": {
+    "id": "higher_dropout_l2",
+    "description": "Previous width with stronger dropout and L2 regularization.",
+    "status": "completed",
+    "parameters": {
+      "id": "higher_dropout_l2",
+      "description": "Previous width with stronger dropout and L2 regularization.",
+      "layers": [
+        64,
+        24
+      ],
+      "dropout": [
+        0.4,
+        0.2
+      ],
+      "batch_normalization": true,
+      "learning_rate": 0.001,
+      "l2": 0.0001,
+      "epochs": 20,
+      "patience": 3
+    },
+    "epochs_completed": 8,
+    "accuracy": 0.9369752149721801,
+    "precision": 0.4513399153737659,
+    "recall": 0.9239653512993262,
+    "f1": 0.6064434617814277,
+    "tn": 17564,
+    "fp": 1167,
+    "fn": 79,
+    "tp": 960
+  }
+}

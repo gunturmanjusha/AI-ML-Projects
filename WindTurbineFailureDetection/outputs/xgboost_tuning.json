@@ -1,0 +1,76 @@
+{
+  "search": {
+    "method": "RandomizedSearchCV",
+    "n_iter": 6,
+    "cv": "two timestamp-grouped expanding-window folds: first 50%\u2192next 25%, then first 75%\u2192final 25% of training history",
+    "scoring": "recall",
+    "parameter_ranges": {
+      "n_estimators": [
+        80,
+        120,
+        160,
+        200
+      ],
+      "max_depth": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "learning_rate": [
+        0.02,
+        0.04,
+        0.07,
+        0.1
+      ],
+      "subsample": [
+        0.7,
+        0.85,
+        1.0
+      ],
+      "colsample_bytree": [
+        0.7,
+        0.85,
+        1.0
+      ],
+      "min_child_weight": [
+        1,
+        3,
+        5
+      ]
+    },
+    "best_parameters": {
+      "subsample": 0.85,
+      "n_estimators": 160,
+      "min_child_weight": 3,
+      "max_depth": 3,
+      "learning_rate": 0.07,
+      "colsample_bytree": 1.0
+    },
+    "best_cv_recall": 0.48450933564915327
+  },
+  "validation": {
+    "model": "XGBoost (tuned)",
+    "split": "validation",
+    "accuracy": 0.9678806272129489,
+    "precision": 0.6957364341085271,
+    "recall": 0.6910490856592878,
+    "f1": 0.6933848382423949,
+    "tn": 18417,
+    "fp": 314,
+    "fn": 321,
+    "tp": 718
+  },
+  "test_if_selected": {
+    "model": "XGBoost (tuned)",
+    "split": "test",
+    "accuracy": 0.9380374304501771,
+    "precision": 0.573270013568521,
+    "recall": 0.5863983344899375,
+    "f1": 0.5797598627787307,
+    "tn": 17700,
+    "fp": 629,
+    "fn": 596,
+    "tp": 845
+  }
+}

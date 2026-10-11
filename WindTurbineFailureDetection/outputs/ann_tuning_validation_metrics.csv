@@ -1,0 +1,2 @@
+id,description,status,epochs_completed,accuracy,precision,recall,f1,tn,fp,fn,tp
+compact_regularized,Smaller regularized network to test a lower-capacity alternative.,completed,11,0.9602427921092564,0.5851851851851851,0.836381135707411,0.6885895404120443,18115,616,170,869

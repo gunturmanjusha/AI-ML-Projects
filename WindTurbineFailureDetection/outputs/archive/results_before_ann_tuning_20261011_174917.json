@@ -1,0 +1,257 @@
+{
+  "overview": {
+    "records": 131760,
+    "columns": 35,
+    "turbines": 15,
+    "date_start": "2024-01-01 00:00:00",
+    "date_end": "2024-03-01 23:50:00",
+    "duplicates": 0,
+    "missing": {
+      "gearbox_oil_temp_C": 645,
+      "generator_bearing_temp_C": 690,
+      "oil_pressure_bar": 636
+    },
+    "failure_rate": 0.030001517911353977
+  },
+  "features": [
+    "rated_power_kW",
+    "wind_speed_mps",
+    "wind_direction_deg",
+    "turbulence_intensity",
+    "air_density_kgm3",
+    "ambient_temp_C",
+    "humidity_pct",
+    "power_output_kW",
+    "rotor_speed_rpm",
+    "generator_speed_rpm",
+    "blade_pitch_angle_deg",
+    "yaw_misalignment_deg",
+    "gearbox_oil_temp_C",
+    "gearbox_bearing_temp_C",
+    "generator_bearing_temp_C",
+    "generator_winding_temp_C",
+    "main_bearing_temp_C",
+    "nacelle_temp_C",
+    "drivetrain_vibration_rms_mmps",
+    "tower_vibration_mmps",
+    "vib_fft_bearing_bpfo",
+    "vib_fft_bearing_bpfi",
+    "vib_fft_gearmesh",
+    "vib_fft_sideband",
+    "oil_particle_count",
+    "oil_pressure_bar",
+    "operating_hours_total",
+    "cumulative_energy_MWh",
+    "load_cycles",
+    "hours_since_last_maintenance",
+    "prior_fault_count",
+    "component_age_days",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "power_utilisation",
+    "gearbox_temp_rise_C",
+    "generator_temp_rise_C"
+  ],
+  "split_sizes": {
+    "train": 92220,
+    "validation": 19770,
+    "test": 19770
+  },
+  "preprocessing": {
+    "imputation": "median fitted on training split only",
+    "scaling": "StandardScaler fitted on training split only for ANN",
+    "imbalance": "class weight for ANN; class weights/scale_pos_weight where supported",
+    "split": "chronological 70/15/15 by timestamp with all turbines at a timestamp kept together"
+  },
+  "baseline_validation": [
+    {
+      "model": "Decision Tree",
+      "split": "validation",
+      "accuracy": 0.9070308548305513,
+      "precision": 0.27743732590529246,
+      "recall": 0.4793070259865255,
+      "f1": 0.3514467184191955,
+      "tn": 17434,
+      "fp": 1297,
+      "fn": 541,
+      "tp": 498
+    },
+    {
+      "model": "Random Forest",
+      "split": "validation",
+      "accuracy": 0.9534648457258472,
+      "precision": 0.8287292817679558,
+      "recall": 0.14436958614051973,
+      "f1": 0.2459016393442623,
+      "tn": 18700,
+      "fp": 31,
+      "fn": 889,
+      "tp": 150
+    },
+    {
+      "model": "Gradient Boosting",
+      "split": "validation",
+      "accuracy": 0.9454223571067274,
+      "precision": 0.4696048632218845,
+      "recall": 0.29740134744947067,
+      "f1": 0.3641720683559222,
+      "tn": 18382,
+      "fp": 349,
+      "fn": 730,
+      "tp": 309
+    },
+    {
+      "model": "XGBoost",
+      "split": "validation",
+      "accuracy": 0.9663631765300961,
+      "precision": 0.7101123595505618,
+      "recall": 0.6082771896053898,
+      "f1": 0.6552617936754795,
+      "tn": 18473,
+      "fp": 258,
+      "fn": 407,
+      "tp": 632
+    },
+    {
+      "model": "Artificial Neural Network",
+      "split": "validation",
+      "accuracy": 0.9478502781992919,
+      "precision": 0.5028449502133713,
+      "recall": 0.6804619826756496,
+      "f1": 0.5783231083844581,
+      "tn": 18032,
+      "fp": 699,
+      "fn": 332,
+      "tp": 707
+    }
+  ],
+  "tuned_validation": [
+    {
+      "model": "XGBoost (tuned)",
+      "split": "validation",
+      "accuracy": 0.965756196256955,
+      "precision": 0.6881496881496881,
+      "recall": 0.6371511068334937,
+      "f1": 0.6616691654172914,
+      "tn": 18431,
+      "fp": 300,
+      "fn": 377,
+      "tp": 662,
+      "parameters": {
+        "subsample": 0.7,
+        "n_estimators": 120,
+        "max_depth": 5,
+        "learning_rate": 0.03,
+        "colsample_bytree": 0.85
+      },
+      "cv_recall": 0.33823997684180057
+    },
+    {
+      "model": "Artificial Neural Network (tuned)",
+      "split": "validation",
+      "accuracy": 0.9156297420333839,
+      "precision": 0.37671501372010974,
+      "recall": 0.9249278152069298,
+      "f1": 0.5353760445682452,
+      "tn": 17141,
+      "fp": 1590,
+      "fn": 78,
+      "tp": 961,
+      "parameters": {
+        "layers": [
+          64,
+          24,
+          1
+        ],
+        "dropout": [
+          0.3,
+          0.15
+        ],
+        "batch_normalization": true,
+        "optimizer": "adam",
+        "early_stopping": true
+      }
+    }
+  ],
+  "selection_rule": "Select highest validation recall; break ties with F1 then precision. Test set is excluded from tuning and selection.",
+  "final_model": "Artificial Neural Network (tuned)",
+  "final_hyperparameters": {
+    "layers": [
+      64,
+      24,
+      1
+    ],
+    "dropout": [
+      0.3,
+      0.15
+    ],
+    "batch_normalization": true,
+    "optimizer": "adam",
+    "early_stopping": true
+  },
+  "final_test": {
+    "model": "Artificial Neural Network (tuned)",
+    "split": "test",
+    "accuracy": 0.9257966616084977,
+    "precision": 0.49483306836248014,
+    "recall": 0.8639833448993754,
+    "f1": 0.6292645943896892,
+    "tn": 17058,
+    "fp": 1271,
+    "fn": 196,
+    "tp": 1245
+  },
+  "feature_importance_method": "Permutation importance on validation data, scored by recall; associations are not causal.",
+  "feature_importance": [
+    {
+      "feature": "drivetrain_vibration_rms_mmps",
+      "importance": 0.24913494809688586
+    },
+    {
+      "feature": "oil_particle_count",
+      "importance": 0.16262975778546707
+    },
+    {
+      "feature": "vib_fft_gearmesh",
+      "importance": 0.05190311418685123
+    },
+    {
+      "feature": "generator_temp_rise_C",
+      "importance": 0.02768166089965396
+    },
+    {
+      "feature": "tower_vibration_mmps",
+      "importance": 0.02422145328719727
+    },
+    {
+      "feature": "ambient_temp_C",
+      "importance": 0.01730103806228378
+    },
+    {
+      "feature": "vib_fft_bearing_bpfo",
+      "importance": 0.01730103806228378
+    },
+    {
+      "feature": "generator_winding_temp_C",
+      "importance": 0.01384083044982698
+    },
+    {
+      "feature": "component_age_days",
+      "importance": 0.01384083044982698
+    },
+    {
+      "feature": "prior_fault_count",
+      "importance": 0.01384083044982698
+    },
+    {
+      "feature": "operating_hours_total",
+      "importance": 0.01038062283737018
+    },
+    {
+      "feature": "vib_fft_bearing_bpfi",
+      "importance": 0.01038062283737018
+    }
+  ]
+}

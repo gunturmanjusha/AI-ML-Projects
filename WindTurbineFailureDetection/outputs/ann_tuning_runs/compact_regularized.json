@@ -1,0 +1,74 @@
+{
+  "method": "Five pre-specified ANN configurations evaluated on the fixed timestamp-grouped chronological validation partition.",
+  "selection_rule": "Highest validation recall; F1 then precision only if recall ties. Test partition excluded.",
+  "preprocessing": "Median imputation and StandardScaler fitted on training split only; class weighting from training labels; early stopping monitors validation loss.",
+  "seed": 42,
+  "class_weight": {
+    "0": 1.0,
+    "1": 61.60692464358452
+  },
+  "attempted_configurations": [
+    {
+      "id": "compact_regularized",
+      "description": "Smaller regularized network to test a lower-capacity alternative.",
+      "status": "completed",
+      "parameters": {
+        "id": "compact_regularized",
+        "description": "Smaller regularized network to test a lower-capacity alternative.",
+        "layers": [
+          48,
+          16
+        ],
+        "dropout": [
+          0.25,
+          0.1
+        ],
+        "batch_normalization": true,
+        "learning_rate": 0.0007,
+        "l2": 0.0001,
+        "epochs": 20,
+        "patience": 3
+      },
+      "epochs_completed": 11,
+      "accuracy": 0.9602427921092564,
+      "precision": 0.5851851851851851,
+      "recall": 0.836381135707411,
+      "f1": 0.6885895404120443,
+      "tn": 18115,
+      "fp": 616,
+      "fn": 170,
+      "tp": 869
+    }
+  ],
+  "validation_winner": {
+    "id": "compact_regularized",
+    "description": "Smaller regularized network to test a lower-capacity alternative.",
+    "status": "completed",
+    "parameters": {
+      "id": "compact_regularized",
+      "description": "Smaller regularized network to test a lower-capacity alternative.",
+      "layers": [
+        48,
+        16
+      ],
+      "dropout": [
+        0.25,
+        0.1
+      ],
+      "batch_normalization": true,
+      "learning_rate": 0.0007,
+      "l2": 0.0001,
+      "epochs": 20,
+      "patience": 3
+    },
+    "epochs_completed": 11,
+    "accuracy": 0.9602427921092564,
+    "precision": 0.5851851851851851,
+    "recall": 0.836381135707411,
+    "f1": 0.6885895404120443,
+    "tn": 18115,
+    "fp": 616,
+    "fn": 170,
+    "tp": 869
+  }
+}

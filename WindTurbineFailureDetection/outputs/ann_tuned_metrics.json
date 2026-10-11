@@ -1,0 +1,75 @@
+{
+  "validation": {
+    "model": "Artificial Neural Network (tuned)",
+    "accuracy": 0.9517304189435337,
+    "precision": 0.522911051212938,
+    "recall": 0.933589990375361,
+    "f1": 0.6703524533517623,
+    "tn": 17840,
+    "fp": 885,
+    "fn": 69,
+    "tp": 970,
+    "parameters": "64/24 ReLU layers, BatchNorm, dropout 0.30/0.15, Adam, early stopping"
+  },
+  "test": {
+    "model": "Artificial Neural Network (tuned)",
+    "accuracy": 0.914187411455171,
+    "precision": 0.456373551465576,
+    "recall": 0.9298611111111111,
+    "f1": 0.6122542295381802,
+    "tn": 16729,
+    "fp": 1595,
+    "fn": 101,
+    "tp": 1339
+  },
+  "feature_importance": [
+    {
+      "feature": "generator_winding_temp_C",
+      "importance": 0.141526460647583
+    },
+    {
+      "feature": "wind_speed_mps",
+      "importance": 0.1372808814048767
+    },
+    {
+      "feature": "power_utilisation",
+      "importance": 0.13690559566020966
+    },
+    {
+      "feature": "power_output_kW",
+      "importance": 0.13342416286468506
+    },
+    {
+      "feature": "nacelle_temp_C",
+      "importance": 0.13065534830093384
+    },
+    {
+      "feature": "generator_bearing_temp_C",
+      "importance": 0.12963280081748962
+    },
+    {
+      "feature": "hour_sin",
+      "importance": 0.1288624107837677
+    },
+    {
+      "feature": "cumulative_energy_MWh",
+      "importance": 0.12789976596832275
+    },
+    {
+      "feature": "tower_vibration_mmps",
+      "importance": 0.12626346945762634
+    },
+    {
+      "feature": "gearbox_temp_rise_C",
+      "importance": 0.12612813711166382
+    },
+    {
+      "feature": "wind_direction_deg",
+      "importance": 0.12579607963562012
+    },
+    {
+      "feature": "blade_pitch_angle_deg",
+      "importance": 0.12513527274131775
+    }
+  ]
+}
